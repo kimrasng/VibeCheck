@@ -1,6 +1,6 @@
 {
   "name": "vibecheck-plus",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Adaptive emotional filtering extension to reduce social media toxicity and emotional overload.",
   "scripts": {
     "build": "webpack --mode production",
