@@ -11,10 +11,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [20.x]
-
     steps:
     - uses: actions/checkout@v4
 
@@ -26,7 +22,7 @@ jobs:
     - name: Use Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 20.x
 
     - name: Install dependencies
       run: npm install
@@ -34,20 +30,29 @@ jobs:
     - name: Build
       run: npx webpack
 
+    # ✅ 빌드 결과물을 VibeCheck 폴더로 이동
+    - name: Move build to VibeCheck folder
+      run: |
+        mkdir -p VibeCheck
+        cp -r dist/* VibeCheck/
+
+    # ✅ 버전 자동 증가
     - name: Bump version
       run: |
         npm version patch -m "chore: bump version to %s"
 
+    # ✅ 변경사항 + 태그 푸시
     - name: Push changes and tags
       run: |
         git push
         git push --tags
 
+    # ✅ Release 생성 + VibeCheck 폴더 업로드
     - name: Create Release
       uses: softprops/action-gh-release@v2
       with:
         tag_name: ${{ github.ref_name }}
         files: |
-          dist/**
+          VibeCheck/**
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
