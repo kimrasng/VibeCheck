@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>VibeCheck+</h1>
+      <span id="version">v1.0.0</span>
+    </header>
+
+    <div id="stats-grid">
+      <div class="stat-card">
+        <label>Total Scanned</label>
+        <div class="value" id="totalScanned">0</div>
+      </div>
+      <div class="stat-card">
+        <label>Filtered %</label>
+        <div class="value" id="negativeExposure">0%</div>
+      </div>
+      <div class="stat-card">
+        <label>Load Score</label>
+        <div class="value" id="loadScore">0</div>
+      </div>
+    </div>
+
+    <div class="chart-container">
+      <h3>Content Filtering</h3>
+      <canvas id="emotionChart"></canvas>
+    </div>
+
+    <div class="controls">
+      <button id="focusModeBtn" class="btn primary">Enable Focus Mode</button>
+      <a href="options.html" target="_blank" class="btn secondary">Settings & Whitelist</a>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

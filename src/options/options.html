@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>VibeCheck+ Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>VibeCheck+ <span class="tag">Settings</span></h1>
+      <p>Configure your personal filters and whitelist.</p>
+    </header>
+
+    <div class="main-grid">
+      <div class="sidebar">
+        <div class="card settings-card">
+          <h2>Blocked Tags</h2>
+          <p class="hint">Posts containing these keywords will be blurred (e.g., suicide, politics).</p>
+          <textarea id="blockedTags" placeholder="Add keywords (one per line)"></textarea>
+        </div>
+
+        <div class="card">
+          <h2>Whitelist Handles</h2>
+          <p class="hint">Handles like @hackclub will never be filtered.</p>
+          <textarea id="whitelist" placeholder="Add handles (e.g., @hackclub)"></textarea>
+        </div>
+
+        <div class="card">
+          <h2>Focus Mode</h2>
+          <div class="toggle-control">
+            <label>Enable Strict Filtering</label>
+            <input type="checkbox" id="focusMode">
+          </div>
+        </div>
+
+        <button id="saveBtn" class="btn primary">Save Changes</button>
+      </div>
+
+      <div class="content">
+        <div class="card chart-card">
+          <h2>Filter Statistics</h2>
+          <div class="canvas-wrapper">
+            <canvas id="trendChart"></canvas>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Data Management</h2>
+          <div class="btn-group">
+            <button id="resetStats" class="btn danger-outline">Reset Statistics</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

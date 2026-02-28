@@ -1,0 +1,4 @@
+.vibe-check-blur-overlay {
+    backdrop-filter: blur(12px);
+    background: rgba(0, 0, 0, 0.4);
+}
